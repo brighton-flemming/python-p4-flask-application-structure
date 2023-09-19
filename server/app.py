@@ -4,6 +4,14 @@ from flask import Flask
 
 app = Flask(__name__)
 
-@app.route
+
+@app.route('/')
 def index():
-    return  '<h1>WElcome to your DOOM(!!_!!)!</h1>'
+    return  '<h1>Welcome to your DOOM(!!_!!)!</h1>'
+
+@app.route('/<string:username>')
+def user(username):
+    return f'<h1>Welcome {username}! Now you are on the list!</h1>'
+
+if __name__ == '__main__':
+    app.run(port=5555, debug=True)
